@@ -5,25 +5,31 @@
     border-radius: 6px;
     overflow     : hidden;
     height       : 600px;
-
+    width        : 100%;
 
     #friendslist {
+
+        width: 30%;
+        float: right;
+
         #topmenu {
 
             display: flex;
             width  : 100%;
-            .friends{
+
+            .friends {
                 margin-top: 6px;
             }
+
             span {
-                width     : 10%;
-                text-align: center;
-                cursor    : pointer;
-                float     : left;
-                width     : 40px;
-                height    : 60px;
-                margin    : 0 0 0 25px;
-                border-bottom:3px solid rgb(5, 110, 180) ;
+                width        : 10%;
+                text-align   : center;
+                cursor       : pointer;
+                float        : left;
+                width        : 40px;
+                height       : 60px;
+                margin       : 0 0 0 25px;
+                border-bottom: 3px solid rgb(5, 110, 180);
             }
 
             .chats,
@@ -49,9 +55,7 @@
 
                 p {
                     padding: 15px 0 0 0;
-                    float  : left;
-                    width  : 220px;
-                   display: flex;
+                    display: flex;
 
                     strong {
                         font-weight: 600;
@@ -88,21 +92,74 @@
             }
 
             .friend:hover {
-                background: #f1f4f6;
-                cursor    : pointer;
-            }
-            #search{
-             
-                input{
-                    width: 100%;
-                    height: 50px;
-                    border: 1px solid rgb(99, 98, 98);
-                    border-radius: 3px;
-                }
+                background   : #f1f4f6;
+                cursor       : pointer;
+                border-radius: 3px;
             }
         }
     }
+
+    #chatview {
+        width     : 290px;
+        height    : 484px;
+        background: #fff;
+
+        #profile {
+            height    : 153px;
+            overflow  : hidden;
+            text-align: center;
+            color     : #fff;
+            background: #fff url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/245657/timeline1.png") 0 0 no-repeat;
+        }
+    }
+
+    .message {
+        img {
+            border-radius: 50%;
+            width        : 40px;
+            border-radius: 50%;
+            margin       : 15px;
+            float        : left;
+        }
+
+        .bubble {
+            background   : #f0f4f7;
+            font-size    : 13px;
+            font-weight  : 600;
+            padding      : 12px 13px;
+            border-radius: 5px 5px 5px 0px;
+            color        : #8495a3;
+            float        : right;
+
+            span {
+                color    : #aab8c2;
+                font-size: 11px;
+                right    : 0;
+                bottom   : -22px;
+            }
+        }
+    }
+
+    .right {
+        float        : right;
+        margin-bottom: 15px;
+
+        img {
+            float: right;
+        }
+
+        .bubble {
+            float: left;
+            width: 200px;
+        }
+    }
+
+    #sendmessage {
+        input {
+            width        : 100%;
+            height       : 47px;
+            border       : 1px solid #636262;
+            border-radius: 3px;
+        }
+    }
 }
-
-
-//   14/000

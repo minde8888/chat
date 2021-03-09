@@ -1,0 +1,16 @@
+.mainNav{
+    text-align: left;
+    line-height: 25px;
+  
+   a{
+    text-decoration: none;
+    color: #000;
+   }
+   a:hover{
+       color: aqua;
+   }
+
+   .active{
+       color: rgb(107, 57, 243);
+   }
+}

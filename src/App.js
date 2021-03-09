@@ -5,8 +5,7 @@ import Profile from './componets/porfile/profile.jsx'
 function App() {
   return (
     <div className="app-wraper">
-      <Profile />
-     
+      <Profile />      
     </div>
   );
 }
