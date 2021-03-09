@@ -24,7 +24,7 @@ const Chat = (props) => {
               <Past />
             </span>
           </div>
-          <Users />
+          <Users users={props.users} />
         </div>
 
         <div id="chatview" className="p1">
@@ -33,14 +33,12 @@ const Chat = (props) => {
               <div className="cy"></div>
               <div className="cx"></div>
             </div>
-            
             <p>Miro Badev</p>
           </div>
           <div id="chat-messages">
             <label>Thursday 02</label>
-            <Post />
+            <Post posts={props.posts} />
           </div>
-
           <div id="sendmessage">
             <input type="text" />
             <button id="send"></button>

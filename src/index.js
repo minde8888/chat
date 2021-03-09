@@ -2,11 +2,13 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.scss';
 import App from './App';
+import state from './componets/redux/state'
+
 
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <App state={state} />
   </React.StrictMode>,
   document.getElementById('root')
 );
