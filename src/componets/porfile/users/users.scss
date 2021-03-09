@@ -1,0 +1,110 @@
+#friendslist {
+
+    width: 30%;
+    float: right;
+
+    #topmenu {
+
+        display: flex;
+        width  : 100%;
+
+        .friends {
+            margin-top: 6px;
+        }
+
+        span {
+            width        : 10%;
+            text-align   : center;
+            cursor       : pointer;
+            float        : left;
+            width        : 40px;
+            height       : 60px;
+            margin       : 0 0 0 25px;
+            border-bottom: 3px solid rgb(5, 110, 180);
+        }
+
+        .chats,
+        .history,
+        .chat {
+            margin-top: 6px;
+        }
+    }
+
+    #friends {
+        margin-top: 2px;
+
+        a {
+            text-decoration: none;
+
+            .friend {
+                height       : 70px;
+                border-bottom: 1px solid #e7ebee;
+                position     : relative;
+
+                img {
+                    width        : 40px;
+                    border-radius: 50%;
+                    margin       : 15px;
+                    float        : left;
+                }
+
+                p {
+                    padding: 15px 0 0 0;
+                    display: flex;
+
+                    strong {
+                        font-weight: 600;
+                        font-size  : 15px;
+                        color      : #597a96;
+                        width      : 100%;
+                    }
+                }
+            }
+
+            .floatingImg {
+                width        : 40px;
+                border-radius: 50%;
+                position     : absolute;
+                top          : 0;
+                left         : 12px;
+                border       : 3px solid #fff;
+            }
+
+            .status {
+                background   : #26c281;
+                border-radius: 50%;
+                width        : 9px;
+                height       : 9px;
+                position     : absolute;
+                top          : 31px;
+                right        : 17px;
+            }
+
+            .away {
+                background   : #fcbe13;
+                border-radius: 50%;
+                width        : 9px;
+                height       : 9px;
+                position     : absolute;
+                top          : 31px;
+                right        : 17px;
+            }
+
+            .inactive {
+                background   : #b90303;
+                border-radius: 50%;
+                width        : 9px;
+                height       : 9px;
+                position     : absolute;
+                top          : 31px;
+                right        : 17px;
+            }
+        }
+
+        .friend:hover {
+            background   : #f1f4f6;
+            cursor       : pointer;
+            border-radius: 3px;
+        }
+    }
+}

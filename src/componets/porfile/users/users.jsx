@@ -1,64 +1,67 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
+import "./users.scss";
 
 const Users = () => {
-  return (
-    <div id="friends">
-      <div className="friend">
-        <img
-          src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/245657/1_copy.jpg"
-          alt="a"
-        />
-        <p>
-          <strong>Miro Badev</strong>
-        </p>
-        <div className="status available"></div>
-      </div>
+  let obj = [
+    {
+      name: "Miro Badev",
+      src: "https://s3-us-west-2.amazonaws.com/s.cdpn.io/245657/1_copy.jpg",
+      alt: "miro",
+      id: "1",
+      status: "status"
+    },
+    {
+      name: "Martin Joseph",
+      src: "https://s3-us-west-2.amazonaws.com/s.cdpn.io/245657/2_copy.jpg",
+      alt: "martin",
+      id: "2",
+      status:"away"
+    },
+    {
+      name: "Tomas Kennedy",
+      src: "https://s3-us-west-2.amazonaws.com/s.cdpn.io/245657/3_copy.jpg",
+      alt: "tomas",
+      id: "3",
+      status:"away"
+    },
+    {
+      name: "Enrique Sutton",
+      src: "https://s3-us-west-2.amazonaws.com/s.cdpn.io/245657/4_copy.jpg",
+      alt: "enrique",
+      id: "4",
+      status:"inactive"
+    },
+    {
+      name: "Darnell Strickland",
+      src: "https://s3-us-west-2.amazonaws.com/s.cdpn.io/245657/5_copy.jpg",
+      alt: "darnell",
+      id: "5",
+      status:"inactive"
+    },
+  ];
 
-      <div className="friend">
-        <img
-          src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/245657/2_copy.jpg"
-          alt="a"
-        />
-        <p>
-          <strong>Martin Joseph</strong>
-        </p>
-        <div className="status away"></div>
-      </div>
+  const User = (props) => {
+    let path = "/chat/" + props.id;
 
-      <div className="friend">
-        <img
-          src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/245657/3_copy.jpg"
-          alt="a"
-        />
-        <p>
-          <strong>Tomas Kennedy</strong>
-        </p>
-        <div className="status inactive"></div>
-      </div>
+    return (
+      <NavLink to={path}>
+        <div className="friend">
+          <img src={props.src} alt={props.alt} />
+          <p>
+            <strong>{props.name}</strong>
+          </p>
+          <div className={props.status}></div>
+        </div>
+      </NavLink>
+    );
+  };
 
-      <div className="friend">
-        <img
-          src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/245657/4_copy.jpg"
-          alt="a"
-        />
-        <p>
-          <strong>Enrique Sutton</strong>
-        </p>
-        <div className="status inactive"></div>
-      </div>
+  let user = obj.map((el, k) => (
+    <User key={k} name={el.name} src={el.src} alt={el.alt} id={el.id} status={el.status} />
+  ));
 
-      <div className="friend">
-        <img
-          src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/245657/5_copy.jpg"
-          alt="a"
-        />
-        <p>
-          <strong> Darnell Strickland</strong>
-        </p>
-        <div className="status inactive"></div>
-      </div>
-    </div>
-  );
+  return <div id="friends">{user}</div>;
 };
 
 export default Users;
