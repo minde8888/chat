@@ -1,14 +1,13 @@
 import React from "react";
 import Post from "../posts/post.jsx";
 import Users from "../users/users.jsx";
-
 import Chats from "./svg/chats.jsx";
-
-import "./chat.scss";
 import User from "./svg/user.jsx";
 import Past from "./svg/past.jsx";
+import "./chat.scss";
 
 const Chat = (props) => {
+
   return (
     <div className="colom2">
       <div id="chatbox">
@@ -24,7 +23,7 @@ const Chat = (props) => {
               <Past />
             </span>
           </div>
-          <Users />
+          <Users users={props.users} />
         </div>
 
         <div id="chatview" className="p1">
@@ -33,17 +32,11 @@ const Chat = (props) => {
               <div className="cy"></div>
               <div className="cx"></div>
             </div>
-            
             <p>Miro Badev</p>
           </div>
           <div id="chat-messages">
             <label>Thursday 02</label>
-            <Post />
-          </div>
-
-          <div id="sendmessage">
-            <input type="text" />
-            <button id="send"></button>
+            <Post posts={props.posts} addMessage={props.addMessage} newMessage={props.newMessage} updateText={props.updateText}/>
           </div>
         </div>
       </div>
