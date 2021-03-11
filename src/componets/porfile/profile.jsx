@@ -16,7 +16,7 @@ const Profile = (props) => {
         </div>
         <Route
           path="/chat"
-          render={() => <Chat posts={props.posts} users={props.users} addMessage={props.addMessage} newMessage={props.newMessage} updateText={props.updateText}/>}
+          render={() => <Chat posts={props.posts} users={props.users} newMessage={props.newMessage}  dispatch={props.dispatch}/>}
         />
         <Route path="/innstillinger" render={() => <Settnigs />} />
         <div className="colom3">

@@ -36,7 +36,7 @@ const Chat = (props) => {
           </div>
           <div id="chat-messages">
             <label>Thursday 02</label>
-            <Post posts={props.posts} addMessage={props.addMessage} newMessage={props.newMessage} updateText={props.updateText}/>
+            <Post posts={props.posts} newMessage={props.newMessage} dispatch={props.dispatch}/>
           </div>
         </div>
       </div>
