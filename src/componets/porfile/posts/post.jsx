@@ -28,16 +28,17 @@ const Post = (props) => {
   ));
 
   let postText = React.createRef();
+  
   let add = () => {
-    props.addMessage(postText.current.value);
-    props.updateText("");
+    props.dispatch({type:"ADD-POST"});
   };
 
   let onMassegeChange = () => {
     let text = postText.current.value;
-    props.updateText(text);
+    const newLocal = { type: "UPDATE-NEW-POST-TEXT", text: text };
+    props.dispatch(newLocal);
   };
-
+  
   return (
     <div className="chatbox">
       {masseges}
