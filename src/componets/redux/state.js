@@ -1,5 +1,9 @@
+let rerenderEntireTree = () => {
+    console.log("sate change");
+}
+
 let state = {
-    chatMessages:{
+    chatMessages: {
         posts: [
             {
                 class: "message",
@@ -46,9 +50,10 @@ let state = {
                 content: " Yeah, hold on",
                 time: "Now",
             },
-        ]
+        ],
+        newMessage: " ",
     },
-    chatUsers:{
+    chatUsers: {
         users: [
             {
                 name: "Miro Badev",
@@ -87,6 +92,33 @@ let state = {
             },
         ]
     }
+}
+
+export const addMessage = () => {
+    let newMessage = {
+        class: "message",
+        name: "Miro Badev",
+        src: "https://s3-us-west-2.amazonaws.com/s.cdpn.io/245657/1_copy.jpg",
+        alt: "miro",
+        id: "1",
+        content: state.chatMessages.newMessage,
+        time: "now",
+    };
+
+    state.chatMessages.posts.push(newMessage);
+
+    rerenderEntireTree(state);
+
+}
+
+export const updateText = (text) => {
+    state.chatMessages.newMessage = text;
+    rerenderEntireTree(state);
+  
+}
+
+export const subscribe = (observer) =>{
+    rerenderEntireTree = observer;
 }
 
 export default state;

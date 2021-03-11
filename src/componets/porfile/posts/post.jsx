@@ -1,4 +1,5 @@
 import React from "react";
+import Redo from "../chat/svg/redo";
 
 const Post = (props) => {
   const Message = (props) => {
@@ -26,7 +27,33 @@ const Post = (props) => {
     />
   ));
 
-  return <div>{masseges}</div>;
+  let postText = React.createRef();
+  let add = () => {
+    props.addMessage(postText.current.value);
+    props.updateText("");
+  };
+
+  let onMassegeChange = () => {
+    let text = postText.current.value;
+    props.updateText(text);
+  };
+
+  return (
+    <div className="chatbox">
+      {masseges}
+      <div id="sendmessage">
+        <input
+          onChange={onMassegeChange}
+          ref={postText}
+          type="text"
+          value={props.newMessage}
+        />
+        <button onClick={add} id="send">
+          <Redo />
+        </button>
+      </div>
+    </div>
+  );
 };
 
 export default Post;
