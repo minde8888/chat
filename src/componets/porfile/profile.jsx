@@ -8,7 +8,7 @@ import Settnigs from "./settings/settings";
 import NavBar from "./nav/nav.jsx";
 
 const Profile = (props) => {
- 
+
   return (
     <BrowserRouter>
       <div className="main">

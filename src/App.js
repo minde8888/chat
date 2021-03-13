@@ -3,6 +3,7 @@ import Profile from './componets/porfile/profile.jsx'
 
 
 function App(props) {
+
   return (
     <div className="app-wraper">
       <Profile posts={props.state.chatMessages.posts} 
