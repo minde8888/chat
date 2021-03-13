@@ -8,6 +8,7 @@ import Settnigs from "./settings/settings";
 import NavBar from "./nav/nav.jsx";
 
 const Profile = (props) => {
+ 
   return (
     <BrowserRouter>
       <div className="main">
@@ -16,7 +17,7 @@ const Profile = (props) => {
         </div>
         <Route
           path="/chat"
-          render={() => <Chat posts={props.posts} users={props.users} newMessage={props.newMessage}  dispatch={props.dispatch}/>}
+          render={() => <Chat posts={props.posts} users={props.users} newMessage={props.newMessage}  dispatch={props.dispatch} newMessageText={props.newMessageText}/>}
         />
         <Route path="/innstillinger" render={() => <Settnigs />} />
         <div className="colom3">

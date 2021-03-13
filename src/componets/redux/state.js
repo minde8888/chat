@@ -1,3 +1,8 @@
+import  chatMessagesReducer  from "./chatMessagesReducer";
+import  chatUsersReducer  from "./chatUsersReducer";
+import  sideBarReducer  from "./sideBarReducer";
+
+
 let store = {
     _state: {
         chatMessages: {
@@ -48,7 +53,8 @@ let store = {
                     time: "Now",
                 },
             ],
-            newMessage: " labas",
+            newMessage: " ",
+            newMessageText: "",
         },
         chatUsers: {
             users: [
@@ -87,8 +93,10 @@ let store = {
                     id: "5",
                     status: "inactive"
                 },
-            ]
-        }
+            ],
+
+        },
+        sideBar: {}
     },
     _rerenderEntireTree() {
 
@@ -102,24 +110,19 @@ let store = {
     },
 
     dispatch(action) {
-        if (action.type === "ADD-POST") {
-            let newMessage = {
-                class: "message",
-                name: "Miro Badev",
-                src: "https://s3-us-west-2.amazonaws.com/s.cdpn.io/245657/1_copy.jpg",
-                alt: "miro",
-                id: "1",
-                content: this._state.chatMessages.newMessage,
-                time: "now",
-            }
-            this._state.chatMessages.posts.push(newMessage);
-            this._state.chatMessages.postText = " ";
-            this._rerenderEntireTree(this._state);
-        } else if (action.type === "UPDATE-NEW-POST-TEXT") {
-            this._state.chatMessages.newMessage = action.text;
-            this._rerenderEntireTree(this._state);
-        }
+
+        this._state.chatMessages = chatMessagesReducer(this._state.chatMessages, action)
+        this._state.chatMessages = chatUsersReducer(this._state.chatMessages, action)
+        this._state.sideBa =  sideBarReducer(this._state.sideBarReducer, action)
+
+        this._rerenderEntireTree(this._state);
+
+
     }
 }
+
+
+
+
 
 export default store;

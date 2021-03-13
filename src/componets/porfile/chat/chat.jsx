@@ -23,7 +23,7 @@ const Chat = (props) => {
               <Past />
             </span>
           </div>
-          <Users users={props.users} />
+          <Users users={props.users} dispatch={props.dispatch} newMessageText={props.newMessageText}/>
         </div>
 
         <div id="chatview" className="p1">
