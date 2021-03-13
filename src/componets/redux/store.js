@@ -1,6 +1,6 @@
 import  chatMessagesReducer  from "./chatMessagesReducer";
 import  chatUsersReducer  from "./chatUsersReducer";
-import  sideBarReducer  from "./sideBarReducer";
+import  sideBarReducer  from "./users";
 
 
 let store = {
