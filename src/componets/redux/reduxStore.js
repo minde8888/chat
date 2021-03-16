@@ -7,11 +7,11 @@ import users from "./users";
 
 let reducres = combineReducers({
     
-    chatMessages: chatUsersReducer,
+    // chatMessages: chatUsersReducer,
     chatMessages: chatMessagesReducer,
     chatUsers: users
 });
 
 let store = createStore(reducres);
 
-export default store;
+export default store; 
