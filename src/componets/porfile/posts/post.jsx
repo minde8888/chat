@@ -1,6 +1,5 @@
 import React from "react";
 import Redo from "../chat/svg/redo";
-import { addPostAction,uppdateAction } from "../../redux/chatMessagesReducer";
 
 const Post = (props) => {
   const Message = (props) => {
@@ -16,7 +15,7 @@ const Post = (props) => {
     );
   };
 
-  let masseges = props.posts.map((el, k) => (
+  let masseges = props.postPage.posts.map((el, k) => (
     <Message
       key={k}
       class={el.class}
@@ -30,14 +29,13 @@ const Post = (props) => {
 
   let postText = React.createRef();
 
-  let add = () => {
-    props.dispatch(addPostAction());
+  let onAdd = () => {
+    props.addPost();
   };
 
   let onMassegeChange = () => {
-    let text = postText.current.value;
-    const action = uppdateAction(text);
-    props.dispatch(action);
+    let text = postText.current.value;    
+    props.update(text);
   };
   return (
     <div className="chatbox">
@@ -49,7 +47,7 @@ const Post = (props) => {
           type="text"
           value={props.newMessage}
         />
-        <button onClick={add} id="send">
+        <button onClick={onAdd} id="send">
           <Redo />
         </button>
       </div>

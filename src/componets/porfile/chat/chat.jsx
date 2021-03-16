@@ -1,10 +1,10 @@
 import React from "react";
-import Post from "../posts/post.jsx";
 import Users from "../users/users.jsx";
 import Chats from "./svg/chats.jsx";
 import User from "./svg/user.jsx";
 import Past from "./svg/past.jsx";
 import "./chat.scss";
+import PostContainer from "../posts/postContainer.jsx";
 
 const Chat = (props) => {
 
@@ -23,7 +23,11 @@ const Chat = (props) => {
               <Past />
             </span>
           </div>
-          <Users users={props.users} dispatch={props.dispatch} newMessageText={props.newMessageText}/>
+          {/* <Users
+            users={props.users}
+            dispatch={props.dispatch}
+            newMessageText={props.newMessageText}
+          /> */}
         </div>
 
         <div id="chatview" className="p1">
@@ -36,7 +40,7 @@ const Chat = (props) => {
           </div>
           <div id="chat-messages">
             <label>Thursday 02</label>
-            <Post posts={props.posts} newMessage={props.newMessage} dispatch={props.dispatch}/>
+            <PostContainer store={props.store} />
           </div>
         </div>
       </div>
