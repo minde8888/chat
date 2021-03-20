@@ -6,7 +6,8 @@ import woomen from "../porfile/img/woomen.jpg";
 import { Route } from "react-router-dom";
 import Settnigs from "./settings/settings";
 import NavBar from "./nav/nav.jsx";
-import Users from "./users/usersContainer"
+import UsersContainer from "./users/usersContainer";
+
 
 const Profile = (props) => {
   return (
@@ -23,7 +24,7 @@ const Profile = (props) => {
         )}
       />
       <Route path="/innstillinger" render={() => <Settnigs />} />
-      <Route path="/users" render={() => <Users />} />
+      <Route path="/users" render={() => <UsersContainer/>} />
       <div className="colom3">
         <div className="text"></div>
       </div>

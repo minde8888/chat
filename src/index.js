@@ -8,6 +8,7 @@ import { BrowserRouter } from 'react-router-dom';
 
 
 let rerenderEntireTree = () => {
+
   ReactDOM.render(
     <BrowserRouter>
     <Provider store={store}>
