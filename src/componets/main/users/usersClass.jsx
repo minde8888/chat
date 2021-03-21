@@ -3,38 +3,39 @@ import React from "react";
 import "./users.scss";
 import userImage from "../img/last ned.png";
 import Preloader from "../../common/preloader/preloader";
+import { NavLink } from "react-router-dom";
 // import UsersShow from "./usersShow";
 
 class UsersApi extends React.Component {
   componentDidMount() {
-    this.props.setIsFeaching(1)
+    this.props.setIsFeaching(1);
     axios
       .get(
         `https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`
       )
       .then((response) => {
-        this.props.setIsFeaching(0)
+        this.props.setIsFeaching(0);
         this.props.setUsers(response.data.items);
         this.props.setTotoalUsers(response.data.totalCount);
       });
   }
 
   onPageChanget = (p) => {
-    this.props.setIsFeaching(1)
+    this.props.setIsFeaching(1);
     this.props.setCurrentPage(p);
     axios
       .get(
         `https://social-network.samuraijs.com/api/1.0/users?page=${p}&count=${this.props.pageSize}`
       )
       .then((response) => {
-        this.props.setIsFeaching(0)
+        this.props.setIsFeaching(0);
         this.props.setUsers(response.data.items);
       });
   };
 
   render() {
     // return <UsersShow props={this.props} onPageChanget={this.onPageChanget} />;
-  
+
     let pagesCaunt = Math.ceil(this.props.totoalUsers / this.props.pageSize);
 
     let pages = [];
@@ -43,8 +44,8 @@ class UsersApi extends React.Component {
     }
     return (
       <div>
-       {this.props.isFetching ? <Preloader/>  : null}
-       
+        {this.props.isFetching ? <Preloader /> : null}
+
         <div className="pagination">
           {pages.map((p, k) => {
             return (
@@ -61,11 +62,13 @@ class UsersApi extends React.Component {
           })}
         </div>
         {this.props.users.map((el, k) => (
-          <div key={k} id={this.props.id} className={el.class}>
-            <img
-              src={el.photos.small != null ? el.photos.small : userImage}
-              alt={el.alt}
-            />
+          <div key={k} id={el.id} className={el.class}>
+            <NavLink to={"/profile"+"/"+el.id}>
+              <img
+                src={el.photos.small != null ? el.photos.small : userImage}
+                alt={el.alt}
+              />
+            </NavLink >
             <div className="bubble">
               {el.name}
               <div>
