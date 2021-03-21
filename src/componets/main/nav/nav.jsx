@@ -15,10 +15,10 @@ const NavBar = () => {
         <NavLink to="/chat">chat</NavLink>
       </div>
       <div>
-      <NavLink to="/users">users</NavLink>
+        <NavLink to="/users">users</NavLink>
       </div>
       <div>
-        <a href="#">chat</a>
+        <NavLink to="/profile">profile</NavLink>
       </div>
     </div>
   );
