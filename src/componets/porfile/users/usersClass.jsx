@@ -2,33 +2,39 @@ import axios from "axios";
 import React from "react";
 import "./users.scss";
 import userImage from "../img/last ned.png";
+import Preloader from "../../common/preloader/preloader";
 // import UsersShow from "./usersShow";
 
 class UsersApi extends React.Component {
   componentDidMount() {
+    this.props.setIsFeaching(1)
     axios
       .get(
         `https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`
       )
       .then((response) => {
+        this.props.setIsFeaching(0)
         this.props.setUsers(response.data.items);
         this.props.setTotoalUsers(response.data.totalCount);
       });
   }
 
   onPageChanget = (p) => {
+    this.props.setIsFeaching(1)
     this.props.setCurrentPage(p);
     axios
       .get(
         `https://social-network.samuraijs.com/api/1.0/users?page=${p}&count=${this.props.pageSize}`
       )
       .then((response) => {
+        this.props.setIsFeaching(0)
         this.props.setUsers(response.data.items);
       });
   };
 
   render() {
     // return <UsersShow props={this.props} onPageChanget={this.onPageChanget} />;
+  
     let pagesCaunt = Math.ceil(this.props.totoalUsers / this.props.pageSize);
 
     let pages = [];
@@ -37,6 +43,8 @@ class UsersApi extends React.Component {
     }
     return (
       <div>
+       {this.props.isFetching ? <Preloader/>  : null}
+       
         <div className="pagination">
           {pages.map((p, k) => {
             return (

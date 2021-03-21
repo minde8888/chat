@@ -6,6 +6,7 @@ import {
   setUsersAc,
   setCurrentPageAc,
   setTotoalUsersAc,
+  setIsFeachingAc
 } from "../../redux/usersReducer";
 
 let mapStateToProps = (state) => {
@@ -14,6 +15,7 @@ let mapStateToProps = (state) => {
     pageSize: state.usersPage.pageSize,
     totoalUsers: state.usersPage.totoalUsers,
     currentPage: state.usersPage.currentPage,
+    isFetching: state.usersPage.isFetching
   };
 };
 
@@ -33,6 +35,9 @@ let mapDistpachToProps = (distpach) => {
     },
     setTotoalUsers: (totalCount) => {
       distpach(setTotoalUsersAc(totalCount));
+    },
+    setIsFeaching: (isFetching) => {
+      distpach(setIsFeachingAc(isFetching));
     },
   };
 };
