@@ -15,7 +15,7 @@ const NavBar = () => {
         <NavLink to="/chat">chat</NavLink>
       </div>
       <div>
-        <a href="#">artist</a>
+      <NavLink to="/users">users</NavLink>
       </div>
       <div>
         <a href="#">chat</a>

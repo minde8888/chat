@@ -6,9 +6,10 @@ import woomen from "../porfile/img/woomen.jpg";
 import { Route } from "react-router-dom";
 import Settnigs from "./settings/settings";
 import NavBar from "./nav/nav.jsx";
+import UsersContainer from "./users/usersContainer";
+
 
 const Profile = (props) => {
-
   return (
     <div className="main">
       <div className="colom1">
@@ -18,14 +19,12 @@ const Profile = (props) => {
         path="/chat"
         render={() => (
           <Chat
-            // users={props.users}
-            // dispatch={props.dispatch}
-            // newMessageText={props.newMessageText}
             store={props.store}
           />
         )}
       />
       <Route path="/innstillinger" render={() => <Settnigs />} />
+      <Route path="/users" render={() => <UsersContainer/>} />
       <div className="colom3">
         <div className="text"></div>
       </div>
