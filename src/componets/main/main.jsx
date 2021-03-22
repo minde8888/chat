@@ -16,7 +16,7 @@ const Main = () => {
         <img className="backgound" src={image} width="100%" height="100%" />
       </div>
       <Route path="/chat" render={() => <Chat />} />
-      <Route path="/profile" render={() => <ProfileContainer />} />
+      <Route path="/profile/:userId?" render={() => <ProfileContainer />} />
       <Route path="/innstillinger" render={() => <Settnigs />} />
       <Route path="/users" render={() => <UsersContainer />} />
       <div className="colom3">

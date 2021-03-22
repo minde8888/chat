@@ -1,5 +1,5 @@
 import React from "react";
-import MyPostsContainer from "./myPostsContainer";
+import MyPostsContainer from "./myProfileContainer";
 import ProfileInfo from "./profileInfo";
 
 
@@ -8,7 +8,7 @@ const Profile = (props) => {
   return (
     <div>
         
-      <ProfileInfo props={props}/>
+      <ProfileInfo profile={props.profile}/>
       <MyPostsContainer />
     </div>
   );

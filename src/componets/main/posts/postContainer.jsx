@@ -1,4 +1,3 @@
-import React from "react";
 import Post from "./post";
 import { addPostAction, uppdateAction } from "../../redux/chatMessagesReducer";
 import { connect } from "react-redux";
