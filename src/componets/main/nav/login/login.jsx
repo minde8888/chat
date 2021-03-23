@@ -2,7 +2,6 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 
 const Login = (props) => {
-  console.log(props);
   return (
     <div className="loginBlock">
       {props.isAuth ? props.login : <NavLink to={"/login"}>login</NavLink>}
