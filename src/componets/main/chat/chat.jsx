@@ -1,5 +1,4 @@
 import React from "react";
-import Users from "../users/users.jsx";
 import Chats from "./svg/chats.jsx";
 import User from "./svg/user.jsx";
 import Past from "./svg/past.jsx";
@@ -7,7 +6,6 @@ import "./chat.scss";
 import PostContainer from "../posts/postContainer.jsx";
 
 const Chat = (props) => {
-
   return (
     <div className="colom2">
       <div id="chatbox">

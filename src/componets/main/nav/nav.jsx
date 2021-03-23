@@ -1,6 +1,7 @@
 import React from "react";
 import "./nav.scss";
 import { NavLink } from "react-router-dom";
+import LoginContainer from "./login/loginContainer";
 
 const NavBar = () => {
   return (
@@ -8,6 +9,7 @@ const NavBar = () => {
       <div>
         <a href="#">Kristina Kristina</a>
       </div>
+      <LoginContainer/>
       <div>
         <NavLink to="/innstillinger">Innstillinger</NavLink>
       </div>
@@ -15,10 +17,10 @@ const NavBar = () => {
         <NavLink to="/chat">chat</NavLink>
       </div>
       <div>
-        <a href="#">artist</a>
+        <NavLink to="/users">users</NavLink>
       </div>
       <div>
-        <a href="#">chat</a>
+        <NavLink to="/profile">profile</NavLink>
       </div>
     </div>
   );

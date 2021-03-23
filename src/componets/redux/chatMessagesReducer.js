@@ -51,39 +51,40 @@ let initialState = {
             time: "Now",
         },
     ],
-    newMessage: " ",
-    newMessageText: "",
-
+    newMessage: ""
 }
 
 const chatMessagesReducer = (state = initialState, action) => {
-    let stateCopy = { ...state };
+
     switch (action.type) {
         case ADD_POST: {
-            let newMessage = {
-                class: "message",
-                name: "Miro Badev",
-                src: "https://s3-us-west-2.amazonaws.com/s.cdpn.io/245657/1_copy.jpg",
-                alt: "miro",
-                id: "1",
-                content: state.newMessage,
-                time: "now",
+            return {
+                ...state,
+                newMessage: "",
+                posts: [...state.posts,
+                {
+                    class: "message",
+                    name: "Miro Badev",
+                    src: "https://s3-us-west-2.amazonaws.com/s.cdpn.io/245657/1_copy.jpg",
+                    alt: "miro",
+                    id: "1",
+                    content: state.newMessage,
+                    time: "now",
+                }
+                ]
             }
-            stateCopy.posts = [...state.posts];
-            stateCopy.posts.push(newMessage);
-            // stateCopy.posts.push(newMessage);
-            stateCopy.newMessage = "";
-            break;
+        
         }
         case UPDATE_NEW_POST_TEXT: {
-                       stateCopy.newMessage = action.text;
-            break;
+             return {
+                ...state,
+                newMessage: action.text
+            }
         }
         default:
-            break;
+            return state;
     }
 
-    return stateCopy;
 }
 
 export const addPostAction = () => ({ type: ADD_POST })

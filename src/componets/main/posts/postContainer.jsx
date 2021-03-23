@@ -1,4 +1,3 @@
-import React from "react";
 import Post from "./post";
 import { addPostAction, uppdateAction } from "../../redux/chatMessagesReducer";
 import { connect } from "react-redux";
@@ -25,7 +24,8 @@ import { connect } from "react-redux";
 
 let mapStateToProps = (state) => {
   return {
-    postPage: state.chatMessages,
+    posts: state.chatMessages.posts,
+    newMessage:state.chatMessages.newMessage
   };
 };
 

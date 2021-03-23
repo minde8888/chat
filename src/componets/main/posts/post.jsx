@@ -2,6 +2,7 @@ import React from "react";
 import Redo from "../chat/svg/redo";
 
 const Post = (props) => {
+
   const Message = (props) => {
     return (
       <div id={props.id} className={props.class}>
@@ -15,7 +16,7 @@ const Post = (props) => {
     );
   };
 
-  let masseges = props.postPage.posts.map((el, k) => (
+  let masseges = props.posts.map((el, k) => (
     <Message
       key={k}
       class={el.class}
@@ -30,13 +31,16 @@ const Post = (props) => {
   let postText = React.createRef();
 
   let onAdd = () => {
-    props.addPost();
+    props.addPost();   
   };
 
   let onMassegeChange = () => {
-    let text = postText.current.value;    
+
+    let text = postText.current.value;  
+  
     props.update(text);
   };
+
   return (
     <div className="chatbox">
       {masseges}

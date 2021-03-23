@@ -1,17 +1,19 @@
 import { combineReducers, createStore } from "redux";
 import chatMessagesReducer from "./chatMessagesReducer";
-import chatUsersReducer from "./chatUsersReducer";
+import usersReducer from "./usersReducer";
 import users from "./users";
-
-
+import profileReducer from "./profileReduser";
+import authReducer from "./authReducer"
 
 let reducres = combineReducers({
-    
-    // chatMessages: chatUsersReducer,
+    usersPage: usersReducer,
     chatMessages: chatMessagesReducer,
-    chatUsers: users
+    chatUsers: users,
+    profilePage: profileReducer,
+    auth: authReducer
 });
 
 let store = createStore(reducres);
 
-export default store; 
+window.store = createStore(reducres)
+export default store;
