@@ -4,38 +4,30 @@ import "./users.scss";
 import userImage from "../img/last ned.png";
 import Preloader from "../../common/preloader/preloader";
 import { NavLink } from "react-router-dom";
+import { UserApi } from "../../../api/api";
 // import UsersShow from "./usersShow";
 
 class UsersApi extends React.Component {
   componentDidMount() {
     this.props.setIsFeaching(1);
-    axios
-      .get(
-        `https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`
-      )
-      .then((response) => {
-        this.props.setIsFeaching(0);
-        this.props.setUsers(response.data.items);
-        this.props.setTotoalUsers(response.data.totalCount);
-      });
+
+    UserApi.getUsers(this.props.currentPage, this.props.pageSize).then((data) => {
+      this.props.setIsFeaching(0);
+      this.props.setUsers(data.items);
+      this.props.setTotoalUsers(data.totalCount);
+    });
   }
 
   onPageChanget = (p) => {
     this.props.setIsFeaching(1);
     this.props.setCurrentPage(p);
-    axios
-      .get(
-        `https://social-network.samuraijs.com/api/1.0/users?page=${p}&count=${this.props.pageSize}`
-      )
-      .then((response) => {
-        this.props.setIsFeaching(0);
-        this.props.setUsers(response.data.items);
-      });
+    UserApi.getUsers(p, this.props.pageSize).then((data) => {
+      this.props.setIsFeaching(0);
+      this.props.setUsers(data.items);
+    });
   };
 
   render() {
-    // return <UsersShow props={this.props} onPageChanget={this.onPageChanget} />;
-
     let pagesCaunt = Math.ceil(this.props.totoalUsers / this.props.pageSize);
 
     let pages = [];
@@ -63,12 +55,12 @@ class UsersApi extends React.Component {
         </div>
         {this.props.users.map((el, k) => (
           <div key={k} id={el.id} className={el.class}>
-            <NavLink to={"/profile"+"/"+el.id}>
+            <NavLink to={"/profile" + "/" + el.id}>
               <img
                 src={el.photos.small != null ? el.photos.small : userImage}
                 alt={el.alt}
               />
-            </NavLink >
+            </NavLink>
             <div className="bubble">
               {el.name}
               <div>
@@ -82,15 +74,46 @@ class UsersApi extends React.Component {
             {el.follow ? (
               <button
                 onClick={() => {
-                  this.props.unfollow(el.id);
+                  axios
+                    .delete(
+                      `https://social-network.samuraijs.com/api/1.0/follow/${el.id}`,
+                      {
+                        withCredentials: true,
+                        headers: {
+                          "API-KEY": "e55abe24-9a61-4a4e-b14b-c9f1d56896b0",
+                        },
+                      }
+                    )
+                    .then((response) => {
+                      console.log(response);
+                      if (response.data.resultCode === 0) {
+                        this.props.unfollow(el.id);
+                      }
+                    });
                 }}
               >
-                follow
+                {" "}
+                follow{" "}
               </button>
             ) : (
               <button
                 onClick={() => {
-                  this.props.follow(el.id);
+                  axios
+                    .post(
+                      `https://social-network.samuraijs.com/api/1.0/follow/${el.id}`,
+                      {},
+                      {
+                        withCredentials: true,
+                        headers: {
+                          "API-KEY": "e55abe24-9a61-4a4e-b14b-c9f1d56896b0",
+                        },
+                      }
+                    )
+                    .then((response) => {
+                      if (response.data.resultCode === 0) {
+                        this.props.follow(el.id);
+                      }
+                    });
                 }}
               >
                 unfollow
