@@ -7,11 +7,10 @@ let initialState = {
    profile:null
 }
 
-
-
 const ProfileReducer = (state = initialState, action) => {
 
     switch (action.type) {        
+        
         case SET_USER_PROFILE:
             return {
                 ...state, profile: action.profile

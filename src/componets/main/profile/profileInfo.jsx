@@ -1,15 +1,15 @@
 import Preloader from "../../common/preloader/preloader";
 
 const ProfileInfo = (props) => {
-    console.log(props);
-//   let large = props.profile.map((el, k) => (el.large));
 
-//   console.log(large);
-  if (!props) {
+  if (props.profile === null || props.profile === undefined) {
     return <Preloader />;
   }
-  return <div>{/* <img src={props.photos.large}/> */}
-  labas</div>;
+  return (
+    <div>
+      { <img src={props.profile.photos.large}/> }
+    </div>
+  );
 };
 
 export default ProfileInfo;

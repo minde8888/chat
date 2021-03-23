@@ -2,7 +2,7 @@ import React from "react";
 import userImage from "../img/last ned.png";
 
 let UsersShow = (props) => {
-  console.log(props);
+
   let pagesCaunt = Math.ceil(props.totoalUsers / props.pageSize);
 
   let pages = [];
@@ -27,10 +27,10 @@ let UsersShow = (props) => {
         })}
       </div>
       {props.users.map((el, k) => (
-        <div key={k} id={props.id} className={el.class}>
+        <div key={k} id={el.id} className={el.class}>
           <img
             src={el.photos.small != null ? el.photos.small : userImage}
-            alt={el.alt}
+            alt={el.alt} 
           />
           <div className="bubble">
             {el.name}
