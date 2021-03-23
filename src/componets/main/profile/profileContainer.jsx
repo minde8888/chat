@@ -11,7 +11,6 @@ class ProfileContainer extends React.Component {
     if (!id) {
       id = 2;
     }
-    console.log(id);
     axios
       .get(`https://social-network.samuraijs.com/api/1.0/profile/${id}`)
       .then((response) => {
