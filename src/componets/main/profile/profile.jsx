@@ -4,7 +4,6 @@ import ProfileInfo from "./profileInfo";
 
 
 const Profile = (props) => {
-
   return (
     <div>
         
