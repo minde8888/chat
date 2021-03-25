@@ -1,15 +1,21 @@
 import React from "react";
 import userImage from "../img/last ned.png";
+import Preloader from "../../common/preloader/preloader";
+import { NavLink } from "react-router-dom";
 
-let UsersShow = (props) => {
+let UsersPresent = (props) => {
+
   let pagesCaunt = Math.ceil(props.totoalUsers / props.pageSize);
 
   let pages = [];
   for (let i = 1; i <= pagesCaunt; i++) {
     pages.push(i);
   }
+  console.log(props.users);
   return (
     <div>
+      {props.isFetching ? <Preloader /> : null}
+
       <div className="pagination">
         {pages.map((p, k) => {
           return (
@@ -27,10 +33,12 @@ let UsersShow = (props) => {
       </div>
       {props.users.map((el, k) => (
         <div key={k} id={el.id} className={el.class}>
-          <img
-            src={el.photos.small != null ? el.photos.small : userImage}
-            alt={el.alt}
-          />
+          <NavLink to={"/profile" + "/" + el.id}>
+            <img
+              src={el.photos.small != null ? el.photos.small : userImage}
+              alt={el.alt}
+            />
+          </NavLink>
           <div className="bubble">
             {el.name}
             <div>
@@ -43,6 +51,9 @@ let UsersShow = (props) => {
           </div>
           {el.follow ? (
             <button
+              disabled={props.followingInProgress.some(
+                (id) => id === el.id
+              )}
               onClick={() => {
                 props.unfollow(el.id);
               }}
@@ -51,6 +62,9 @@ let UsersShow = (props) => {
             </button>
           ) : (
             <button
+              disabled={props.followingInProgress.some(
+                (id) => id === el.id
+              )}
               onClick={() => {
                 props.follow(el.id);
               }}
@@ -64,4 +78,4 @@ let UsersShow = (props) => {
   );
 };
 
-export default UsersShow;
+export default UsersPresent;

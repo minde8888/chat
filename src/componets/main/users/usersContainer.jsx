@@ -1,13 +1,15 @@
 import { connect } from "react-redux";
-import UsersApi from "./usersClass";
+import AllUsers from "./usersClass";
 import {
   follow,
   unfollow,
-  setUsers,
   setCurrentPage,
-  setTotoalUsers,
-  setIsFeaching,
+  setFollowingInProgress,
+  getUsers,
 } from "../../redux/usersReducer";
+
+
+
 
 let mapStateToProps = (state) => {
   return {
@@ -16,9 +18,16 @@ let mapStateToProps = (state) => {
     totoalUsers: state.usersPage.totoalUsers,
     currentPage: state.usersPage.currentPage,
     isFetching: state.usersPage.isFetching,
+    followingInProgress: state.usersPage.followingInProgress,
   };
 };
 
-const UsersContainer = connect(mapStateToProps, {follow,  unfollow,  setUsers,  setCurrentPage,  setTotoalUsers,  setIsFeaching,})(UsersApi);
+const UsersContainer = connect(mapStateToProps, {
+  follow,
+  unfollow,
+  setCurrentPage,
+  setFollowingInProgress,
+  getUsers,
+})(AllUsers);
 
 export default UsersContainer;
