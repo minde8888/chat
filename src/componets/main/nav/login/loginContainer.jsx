@@ -1,4 +1,4 @@
-import Login from "./login";
+import Logged from "./login";
 import React from "react";
 import axios from "axios";
 import { connect } from "react-redux";
@@ -18,7 +18,7 @@ class LoginContainer extends React.Component {
       });
   }
   render() {
-    return <Login {...this.props} />;
+    return <Logged {...this.props} />;
   }
 }
 

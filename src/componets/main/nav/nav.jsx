@@ -9,7 +9,7 @@ const NavBar = () => {
       <div>
         <a href="#">Kristina Kristina</a>
       </div>
-      <LoginContainer/>
+      <LoginContainer />
       <div>
         <NavLink to="/innstillinger">Innstillinger</NavLink>
       </div>

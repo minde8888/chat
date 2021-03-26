@@ -40,7 +40,6 @@ const usersReducer = (state = initialState, action) => {
 
     switch (action.type) {
         case FOLLOW:
-            console.log(action);
             return {
                 ...state,
                 // users: [...state.users]
@@ -52,7 +51,6 @@ const usersReducer = (state = initialState, action) => {
                 })
             }
         case UNFOLLOW:
-            console.log(action);
             return {
                 ...state,
                 users: state.users.map(u => {

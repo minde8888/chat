@@ -8,6 +8,7 @@ import Settnigs from "./settings/settings";
 import NavBar from "./nav/nav.jsx";
 import UsersContainer from "./users/usersContainer";
 import ProfileContainer from "./profile/profileContainer.jsx";
+import Login from "./nav/login/login.jsx";
 
 const Main = () => {
   return (
@@ -18,7 +19,7 @@ const Main = () => {
       <Route path="/chat" render={() => <Chat />} />
       <Route path="/profile/:userId?" render={() => <ProfileContainer />} />
       <Route path="/innstillinger" render={() => <Settnigs />} />
-      <Route path="/users" render={() => <UsersContainer />} />
+      <Route path="/users" render={() => <UsersContainer />} />    
       <div className="colom3">
         <div className="text"></div>
       </div>

@@ -25,7 +25,8 @@ import { connect } from "react-redux";
 let mapStateToProps = (state) => {
   return {
     posts: state.chatMessages.posts,
-    newMessage:state.chatMessages.newMessage
+    newMessage:state.chatMessages.newMessage,
+    isAuth:state.auth.isAuth
   };
 };
 
