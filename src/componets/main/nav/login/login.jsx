@@ -1,11 +1,11 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 
-const Login = (props) => {
+const Logged = (props) => {
   return (
     <div className="loginBlock">
-      {props.isAuth ? props.login : <NavLink to={"/login"}>login</NavLink>}
+      {props.isAuth ? props.login : <NavLink to={"/logged"}>login</NavLink>}
     </div>
   );
 };
-export default Login;
+export default Logged;

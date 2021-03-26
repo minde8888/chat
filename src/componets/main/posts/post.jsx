@@ -1,8 +1,8 @@
 import React from "react";
+import { Redirect } from "react-router";
 import Redo from "../chat/svg/redo";
 
 const Post = (props) => {
-
   const Message = (props) => {
     return (
       <div id={props.id} className={props.class}>
@@ -31,15 +31,16 @@ const Post = (props) => {
   let postText = React.createRef();
 
   let onAdd = () => {
-    props.addPost();   
+    props.addPost();
   };
 
   let onMassegeChange = () => {
+    let text = postText.current.value;
 
-    let text = postText.current.value;  
-  
     props.update(text);
   };
+
+  if (!props.isAuth) return <Redirect to={"/Login"} />;
 
   return (
     <div className="chatbox">

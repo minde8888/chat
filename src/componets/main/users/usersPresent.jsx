@@ -1,7 +1,7 @@
 import React from "react";
 import userImage from "../img/last ned.png";
 import Preloader from "../../common/preloader/preloader";
-import { NavLink } from "react-router-dom";
+import { NavLink} from "react-router-dom";
 
 let UsersPresent = (props) => {
 
@@ -11,7 +11,8 @@ let UsersPresent = (props) => {
   for (let i = 1; i <= pagesCaunt; i++) {
     pages.push(i);
   }
-  console.log(props.users);
+
+  console.log(props.isAuth);
   return (
     <div>
       {props.isFetching ? <Preloader /> : null}
