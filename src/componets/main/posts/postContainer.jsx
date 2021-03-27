@@ -1,6 +1,8 @@
 import Post from "./post";
 import { addPostAction, uppdateAction } from "../../redux/chatMessagesReducer";
 import { connect } from "react-redux";
+import { AuthRedirect } from "../../../hoc/AuthRedirect";
+import { compose } from "redux";
 
 // const PostContainer = (props) => {
 //   let state = props.store.getState();
@@ -26,7 +28,6 @@ let mapStateToProps = (state) => {
   return {
     posts: state.chatMessages.posts,
     newMessage:state.chatMessages.newMessage,
-    isAuth:state.auth.isAuth
   };
 };
 
@@ -42,6 +43,4 @@ let mapDistpachToProps = (dispatch) => {
   };
 };
 
-const PostContainer = connect(mapStateToProps, mapDistpachToProps)(Post);
-
-export default PostContainer;
+export default compose(connect(mapStateToProps, mapDistpachToProps), AuthRedirect)(Post);

@@ -1,5 +1,4 @@
 import React from "react";
-import { Redirect } from "react-router";
 import "./users.scss";
 import UsersPresent from "./usersPresent";
 
@@ -11,9 +10,8 @@ class AllUsers extends React.Component {
   onPageChanget = (pageNumber) => {
     this.props.getUsers(pageNumber, this.props.pageSize);
   };
- 
+
   render() {
-    if (!this.props.isAuth) return <Redirect to={"/Login"} />;
     return (
       <div>
         <UsersPresent
@@ -22,14 +20,15 @@ class AllUsers extends React.Component {
           isFetching={this.props.isFetching}
           currentPage={this.props.currentPage}
           users={this.props.users}
-          followingInProgress= {this.props.followingInProgress}
+          followingInProgress={this.props.followingInProgress}
           unfollow={this.props.unfollow}
           follow={this.props.follow}
           pageSize={this.props.pageSize}
-         />
+        />
       </div>
     );
   }
 }
+
 
 export default AllUsers;

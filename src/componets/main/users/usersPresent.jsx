@@ -12,7 +12,6 @@ let UsersPresent = (props) => {
     pages.push(i);
   }
 
-  console.log(props.isAuth);
   return (
     <div>
       {props.isFetching ? <Preloader /> : null}
