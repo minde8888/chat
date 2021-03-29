@@ -9,7 +9,7 @@ const ProfileInfo = (props) => {
   return (
     <div>
       <img src={props.profile.photos.large} />
-      <ProfileStatu status={"labas"}/>
+      <ProfileStatu status={props.status} updateStatus={props.updateStatus} />
     </div>
   );
 };

@@ -33,7 +33,7 @@ let UsersPresent = (props) => {
       </div>
       {props.users.map((el, k) => (
         <div key={k} id={el.id} className={el.class}>
-          <NavLink to={"/profile" + "/" + el.id}>
+          <NavLink to={"/profile/" + el.id}>
             <img
               src={el.photos.small != null ? el.photos.small : userImage}
               alt={el.alt}
