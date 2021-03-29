@@ -40,8 +40,6 @@ const Post = (props) => {
     props.update(text);
   };
 
-  if (!props.isAuth) return <Redirect to={"/Login"} />;
-
   return (
     <div className="chatbox">
       {masseges}
